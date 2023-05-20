@@ -1,0 +1,83 @@
+Resources:
+    ### Cloudfront ###
+    MomentsDistribution:
+        Type: AWS::CloudFront::Distribution
+        Properties:
+            DistributionConfig:
+                Aliases:
+                    - momentsimagegallery.site
+                CacheBehaviors:
+                    - PathPattern: 'api/*'
+                      AllowedMethods:
+                          - GET
+                          - HEAD
+                          - OPTIONS
+                          - PUT
+                          - PATCH
+                          - POST
+                          - DELETE
+                      ForwardedValues:
+                          QueryString: true
+                          Cookies:
+                              Forward: all
+                          Headers:
+                              - Authorization
+                      DefaultTTL: 0
+                      MaxTTL: 0
+                      Compress: true
+                      TargetOriginId: MomentsServerOrigin
+                      ViewerProtocolPolicy: redirect-to-https
+                DefaultCacheBehavior:
+                    AllowedMethods:
+                        - GET
+                        - HEAD
+                        - OPTIONS
+                        - PUT
+                        - PATCH
+                        - POST
+                        - DELETE
+                    TargetOriginId: MomentsDomainOrigin
+                    DefaultTTL: 0
+                    MaxTTL: 0
+                    Compress: true
+                    ForwardedValues:
+                        QueryString: true
+                        Cookies:
+                            Forward: all
+                        Headers:
+                            - Authorization
+                    ViewerProtocolPolicy: redirect-to-https
+                DefaultRootObject: index.html
+                Enabled: true
+                HttpVersion: http2
+                IPV6Enabled: true
+                PriceClass: PriceClass_100
+                Origins:
+                    - Id: MomentsDomainOrigin
+                      DomainName: momentsimagegallery.site
+                      CustomOriginConfig:
+                          OriginProtocolPolicy: match-viewer
+                    - Id: MomentsServerOrigin
+                      DomainName: eansa7l6ya.execute-api.us-east-1.amazonaws.com
+                      CustomOriginConfig:
+                          OriginProtocolPolicy: match-viewer
+                ViewerCertificate:
+                    AcmCertificateArn: arn:aws:acm:us-east-1:820184071950:certificate/e2e8cefe-a56e-46f7-83ec-b512943885d2
+                    SslSupportMethod: sni-only
+                    MinimumProtocolVersion: 'TLSv1.2_2021'
+
+Parameters:
+    apiGatewayName:
+        Type: 'String'
+        AllowedPattern: "^[a-zA-Z0-9_.\\-]+$"
+        Default: 'dev-moments'
+
+    apiGatewayDescription:
+        Type: 'String'
+        AllowedPattern: "^[a-zA-Z0-9_.\\- ]+$"
+        Default: 'REST APIs for Moments'
+
+    apiGatewayStageName:
+        Type: 'String'
+        AllowedPattern: '^[a-z0-9]+$'
+        Default: 'dev'

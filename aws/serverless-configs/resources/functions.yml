@@ -1,0 +1,17 @@
+defaultOriginRequest:
+    name: Moments-client-origin-request
+    handler: src/handlers/default-origin-request.handler
+    memorySize: 128
+    timeout: 10
+    lambdaAtEdge:
+        distribution: MomentsDistribution
+        eventType: origin-request
+serverOriginRequest:
+    name: Moments-server-origin-request
+    handler: src/handlers/server-origin-request.handler
+    memorySize: 128
+    timeout: 10
+    lambdaAtEdge:
+        distribution: MomentsDistribution
+        eventType: origin-request
+        pathPattern: 'api/*'

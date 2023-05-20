@@ -1,0 +1,19 @@
+{
+  "extends": ["../.eslintrc.json"],
+
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "modules": true
+    },
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false,
+      "presets": ["@babel/preset-env", "@babel/preset-typescript"]
+    }
+  }
+}

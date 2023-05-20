@@ -1,0 +1,27 @@
+[build.environment]
+CI = "false"
+[build.processing]
+skip_processing = false
+[build.processing.css]
+bundle = true
+minify = false
+[build.processing.js]
+bundle = true
+minify = false
+[build.processing.html]
+pretty_urls = true
+[build.processing.images]
+compress = true
+
+[[redirects]]
+from = "/api/*"
+to = "https://d3on1zqpuckm19.cloudfront.net/api/:splat"
+status = 200
+force = true
+headers = { X-From = "Netlify" }
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = true

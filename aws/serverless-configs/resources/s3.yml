@@ -1,0 +1,29 @@
+Resources:
+    ### S3 Bucket ###
+    galleryS3Bucket:
+        Type: AWS::S3::Bucket
+        Properties:
+            BucketName: moments-gallery
+            CorsConfiguration:
+                CorsRules:
+                    - AllowedHeaders:
+                          - '*'
+                      AllowedMethods:
+                          - GET
+                          - PUT
+                      AllowedOrigins:
+                          - '*'
+                      ExposedHeaders:
+                          - Date
+                    - AllowedHeaders:
+                          - x-amz-*
+                      AllowedMethods:
+                          - DELETE
+                      AllowedOrigins:
+                          - '*'
+                      ExposedHeaders:
+                          - Connection
+                          - Server
+                          - Date
+            VersioningConfiguration:
+                Status: Enabled

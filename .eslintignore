@@ -1,0 +1,8 @@
+.nuxt
+node_modules
+static
+.idea
+.git
+.github
+.vscode
+python

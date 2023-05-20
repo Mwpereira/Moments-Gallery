@@ -52,62 +52,57 @@ npm install
 
 ### To add a package for front-end
 ```sh
-npm install <package-name> -w client
+yarn workspace client <package-name>
 ```
 
 ### To add a package for back-end
 ```sh
-npm install <package-name> -w server
-```
-
-### To run front-end and back-end app
-```sh
-npm run start-all
+yarn workspace server <package-name>
 ```
 
 ### To run front-end ONLY
 ```sh
-npm start -w client
+yarn workspace client start
 ```
 
 ### To build front-end
 ```sh
-npm run build -w client
+yarn workspace client build
 ```
 
 ### To run back-end ONLY
 ```sh
-npm start -w server
+yarn workspace server start
 ```
 
 ### To build the back-end
 ```sh
-npm run build -w server
+yarn workspace server build
 ```
 
 ### To run cloud services ONLY
 ```sh
-npm start -w aws
+yarn workspace aws start
 ```
 
 ### To deploy cloud services
 ```sh
-npm run deploy -w aws
+yarn workspace aws deploy
 ```
 
 ### Lint Repository
 ```sh
-npm run lint
+yarn lint
 ```
 
 ### Lint Client
 ```sh
-npm run lint -w client
+yarn workspace client lint
 ```
 
 ### Lint Server
 ```sh
-npm run lint -w server
+yarn workspace server lint
 ```
 
 ## 🖼️ Gallery

@@ -105,7 +105,7 @@ yarn workspace client lint
 yarn workspace server lint
 ```
 
-## 🖼️ Gallery
+## 📷 Gallery
 
 ### Landing Page
 ![Landing Page](./gallery/landing_page.png)
@@ -116,7 +116,7 @@ yarn workspace server lint
 ### Register Page
 ![Register Page](./gallery/register_page.png)
 
-The following is showed with dark mode enabled.
+<i>The following is showed with dark mode enabled.</i>
 
 ### Upload Page
 ![Upload Page](./gallery/upload_page.png)
